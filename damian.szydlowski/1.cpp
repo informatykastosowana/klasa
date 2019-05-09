@@ -3,18 +3,27 @@
 
 using namespace std;
 
-class liczba {
+class Liczba {
 private:
     int val;
-public:
-    liczba(int val) {
-        this->val = val;
-    }
 
+public:
+    //Konstruktor normalny
+    Liczba() {
+        val = 1;
+    }
+    //Konstruktor z listą inicjalizacyjną
+    Liczba(int VAL) : val(VAL) {
+    }
+    //Destruktor
+    ~Liczba() {
+        cout << "Zwalnianie pamięci" << endl;
+    }
+    //Setter
     void setVal(int val) {
         this->val = val;
     }
-
+    //Getter
     int getVal() {
         return val;
     };
@@ -27,27 +36,31 @@ public:
 
 };
 
-void liczba::printVal() {
+void Liczba::printVal() {
     cout << "liczba = " << val << endl;
 };
 
 int main()
 {
     int input;
-    liczba *x = new liczba(1);
+    Liczba *x = new Liczba(7);
+    Liczba *y = new Liczba();
+
     x->printVal();
-    cout << "Zmiana wartosci liczby" << endl << endl;
+    y->printVal();
+
+    cout << endl << "Zmiana wartosci pierwszej liczby" << endl;
     cout << "Aktualna wartosc = " << x->getVal() << endl;
     cout << "Nowa wartosc = ";
     cin >> input;
     x->setVal(input);
+
     int n = x->getVal();
-    x->printVal();
 
-    int b = 2;
+    int z = x->addVal(y->getVal());
 
-    int y = x->addVal(b);
-    cout << n << " + " << b << " = "<< y << endl;
+    cout << endl << "Suma tych liczb" << endl;
+    cout << n << " + " << y->getVal() << " = "<< z << endl;
 
     delete x;
 
