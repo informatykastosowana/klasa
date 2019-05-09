@@ -7,11 +7,19 @@ class SomeClass
 {
 
 public:
-
+/*
     SomeClass(int num, string txt)
     {
         number = num;
         text = txt;
+    }
+    */
+    SomeClass(int num, string txt) : number(num), text(txt)
+    {
+    }
+    ~SomeClass()
+    {
+    cout << "wywolanie destruktora" << endl;
     }
 
     void setText(string newtext)
@@ -46,12 +54,10 @@ private:
     int number;
     string text;
 
-
-
 };
 
 
-SomeClass::printNumber(int x)
+int SomeClass::printNumber(int x)
 {
     cout << x << endl;
 }
@@ -60,19 +66,20 @@ SomeClass::printNumber(int x)
 
 int main()
 {
-    SomeClass mojObiekt(1, "Jakis tekst");
-    cout << "text: " <<mojObiekt.getText() << endl;
-    cout << "number: " <<mojObiekt.getNumber() << endl;
+    SomeClass* mojObiekt = new SomeClass(1, "jakis tekst");
+    cout << "text: " <<mojObiekt->getText() << endl;
+    cout << "number: " <<mojObiekt->getNumber() << endl;
 
     cout << "ZMIANA" << endl;
-    mojObiekt.setText("Zmieniony tekst");
-    mojObiekt.setNumber(2);
-    cout << "text: " <<mojObiekt.getText() << endl;
-    cout << "number: " <<mojObiekt.getNumber() << endl;
-    mojObiekt.addToNumber(10);
-    cout << "wywolanie: mojObiekt.addToNumber(10)" << endl;
-    cout << "number: " <<mojObiekt.getNumber() << endl;
+    mojObiekt->setText("Zmieniony tekst");
+    mojObiekt->setNumber(2);
+    cout << "text: " <<mojObiekt->getText() << endl;
+    cout << "number: " <<mojObiekt->getNumber() << endl;
+    mojObiekt->addToNumber(10);
+    cout << "wywolanie: mojObiekt->addToNumber(10)" << endl;
+    cout << "number: " <<mojObiekt->getNumber() << endl;
 
 
-    mojObiekt.printNumber(10);
+    mojObiekt->printNumber(10);
+    delete mojObiekt;
 }
