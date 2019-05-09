@@ -7,7 +7,11 @@ class Klasa
   public:
     Klasa() {};
     Klasa(int a, int b, int c){ fA = a; fB = b; fC =c;}
+    Klasa(int a, int b);
+    ~Klasa();
+
     int fA;
+    
     inline void SetB(int b) { fB = b; }
     void SetC(int c) { fC = c; }
     int  GetA();
@@ -15,11 +19,15 @@ class Klasa
     int  GetC() { return fC; }
     void IncreaseA(int i);
     int SumBC();
+    
   protected:
     int fB;
   private:
     int fC;
 };
+
+Klasa::Klasa(int a, int b) : fA(a), fB(b)
+{}
 
 int Klasa::GetA(void) {
    return fA;
@@ -31,6 +39,10 @@ void Klasa::IncreaseA(int i = 1){
 
 int Klasa::SumBC() {
    return fB+fC;
+}
+
+Klasa::~Klasa(){
+   cout <<"Obiekt zostal zniszczony"<< endl;
 }
 
 int main()
@@ -56,7 +68,7 @@ int main()
   wskobiekt->fA = 7;
   cout << "\n\nwskobiekt fA = " << wskobiekt->fA << endl;
   wskobiekt->IncreaseA(3);
-  cout << "\nwskobiekt fA = " << wskobiekt->fA << endl;
+  cout << "\nwskobiekt fA = " << wskobiekt->fA << "\n"<< endl;
 
   delete wskobiekt;
 }
