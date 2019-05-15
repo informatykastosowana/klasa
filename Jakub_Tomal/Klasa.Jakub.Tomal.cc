@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-
+//dodac destruktor i liste inicjalizacyjna w konstruktorze
 class klasa
 {
 
