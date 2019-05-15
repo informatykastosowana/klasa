@@ -11,7 +11,7 @@ class Klasa
     ~Klasa();
 
     int fA;
-    
+    void SetA(int a) { fA = a; }
     inline void SetB(int b) { fB = b; }
     void SetC(int c) { fC = c; }
     int  GetA();
@@ -19,7 +19,7 @@ class Klasa
     int  GetC() { return fC; }
     void IncreaseA(int i);
     int SumBC();
-    
+
   protected:
     int fB;
   private:
@@ -45,6 +45,17 @@ Klasa::~Klasa(){
    cout <<"Obiekt zostal zniszczony"<< endl;
 }
 
+
+class Klasa1: public Klasa
+{
+  public:
+    Klasa1() {};
+    ~Klasa1() {};
+    void Wypisz() { cout << "fA = "<< fA << ", fB = " << fB ;};//<< ", fC = "<< fC << endl; };
+
+};
+
+
 int main()
 {
 
@@ -58,7 +69,7 @@ int main()
   cout << "\nobiekt0 suma fB + fC = " << obiekt0.SumBC() << endl;
 
   Klasa obiekt1(4,5,6);
-  cout << "\n\nobiekt1 fA = " << obiekt1.fA << endl;
+  cout << "\nobiekt1 fA = " << obiekt1.fA << endl;
   cout << "obiekt1 fB = " << obiekt1.GetB() << endl;
   cout << "obiekt1 fC = " << obiekt1.GetC() << endl;
   obiekt1.IncreaseA();
@@ -66,9 +77,18 @@ int main()
 
   Klasa *wskobiekt = new Klasa();
   wskobiekt->fA = 7;
-  cout << "\n\nwskobiekt fA = " << wskobiekt->fA << endl;
+  cout << "\nwskobiekt fA = " << wskobiekt->fA << endl;
   wskobiekt->IncreaseA(3);
-  cout << "\nwskobiekt fA = " << wskobiekt->fA << "\n"<< endl;
+  cout << "wskobiekt fA = " << wskobiekt->fA << "\n"<< endl;
 
+
+  Klasa1 obiekt2;
+  obiekt2.SetA(9);
+  obiekt2.SetB(4);
+  obiekt2.SetC(7);
+  cout << "\nobiekt2 fC = " << obiekt2.GetC()<< endl;
+  cout << "obiekt2 Wypisz ";
+  obiekt2.Wypisz();
+  cout<< "\n"<< endl;
   delete wskobiekt;
 }
