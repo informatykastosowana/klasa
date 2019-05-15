@@ -3,16 +3,23 @@ File contain class operating on private variables using set and get.
 Inline functions declared and definied inside class.
     (inline definition is not necessary though. Compiler can do it automatically for short functions)
 Inside class is declared function which is definied outside of it.
+This version contain destructor and list declaration inside of class Class
 */
-
 #include <iostream>
 
 using namespace std;
 
 class Class {
     public:
-        Class() {
+        Class(int a, int b, int c) {
+            this->a = a;
+            this->b = b;
+            this->c = c;
             cout << "Class it is" << endl;
+        }
+
+        ~Class() {
+            cout << "Class it is not" << endl;
         }
 
         inline int setA(int val) {
@@ -48,7 +55,7 @@ int Class::sum() {
 }
 
 int main() {
-    Class c;
+    Class c(0, 0, 0);
 
     c.setA(11);
     c.setB(-9);
