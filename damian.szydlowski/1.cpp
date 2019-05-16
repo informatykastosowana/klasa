@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#define INT C;
 
 using namespace std;
 
