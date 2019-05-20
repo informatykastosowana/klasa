@@ -5,7 +5,7 @@
 # v0.01
 
 cmake_minimum_required(VERSION 2.8)
-project(kcpp)
+project(klasa)
 
 #set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_BUILD_TYPE Debug)
