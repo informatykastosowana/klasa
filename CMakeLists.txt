@@ -7,7 +7,6 @@
 cmake_minimum_required(VERSION 2.8)
 project(klasa)
 
-#set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_BUILD_TYPE Debug)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O0 -Wno-unused-variable")
@@ -32,13 +31,9 @@ set(current_dir ${CMAKE_CURRENT_SOURCE_DIR})
 file(GLOB_RECURSE APP_SOURCES src/*.cc src/*.cpp)
 
 foreach (sourcefile ${APP_SOURCES})
-    #get filename without extension (NAME_(W)ethout(E)xtenction)
     get_filename_component(itempath ${sourcefile} DIRECTORY)
     get_filename_component(filename ${sourcefile} NAME)
-    #message(STATUS "CSD: ${current_dir}")
     string(REPLACE "${current_dir}/src/" "" path ${itempath})
-    #add executable for all file
-    #string(CONCAT fname ${itempath} ${filename})
     set(fname ${path}_${filename})
     message(STATUS "FILENAME: ${fname}")
     add_executable(${fname} ${sourcefile})
