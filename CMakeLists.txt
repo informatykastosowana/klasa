@@ -35,7 +35,7 @@ foreach (sourcefile ${APP_SOURCES})
     #get filename without extension (NAME_(W)ethout(E)xtenction)
     get_filename_component(itempath ${sourcefile} DIRECTORY)
     get_filename_component(filename ${sourcefile} NAME)
-    message(STATUS "CSD: ${current_dir}")
+    #message(STATUS "CSD: ${current_dir}")
     string(REPLACE "${current_dir}/src/" "" path ${itempath})
     #add executable for all file
     #string(CONCAT fname ${itempath} ${filename})
