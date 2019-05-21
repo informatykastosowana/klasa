@@ -32,7 +32,7 @@ file(GLOB_RECURSE APP_SOURCES src/*.cc src/*.cpp)
 
 foreach (sourcefile ${APP_SOURCES})
     get_filename_component(itempath ${sourcefile} DIRECTORY)
-    get_filename_component(filename ${sourcefile} NAME)
+    get_filename_component(filename ${sourcefile} NAME_WE)
     string(REPLACE "${current_dir}/src/" "" path ${itempath})
     set(fname ${path}_${filename})
     message(STATUS "FILENAME: ${fname}")
